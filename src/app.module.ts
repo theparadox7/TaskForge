@@ -3,6 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { envValidationSchema } from './config/env.validation';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AiModule } from './ai/ai.module';
+import { KnowledgeModule } from './knowledge/knowledge.module';
 
 @Module({
   imports: [
@@ -11,6 +13,8 @@ import { AppService } from './app.service';
       envFilePath: '.env',
       validationSchema: envValidationSchema,
     }),
+    AiModule,
+    KnowledgeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
